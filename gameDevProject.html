@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Development 🪄</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Game Development 🎮</h1>
+      <h2><em>Learn C++ & Make Video Games </em>🎯</h2>
+      <hr />
+      <img
+        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/067/100/original/jbareham_211201_ecl1139_goty_2021_top50_16x9_no_bug.jpg?1676207005"
+        alt="Characters from the popular games"
+        title="Games Characters"
+      />
+      <hr />
+      <p>
+        This <strong>"critically-acclaimed"</strong> and
+        <strong>"insanely successful"</strong> Unreal Engine and C++ course. You
+        can learn how to create and mod video games using Unreal Engine 5, even
+        if you're a complete beginner! We start super simple, so no prior
+        experience of Unreal or coding is needed. With our online tutorials,
+        you'll be amazed at what you can achieve.
+        <span>Let’s create your own 5 games!</span>
+        We can guarantee you that by the end of the course, you'll be very
+        confident in the basics of coding and game development 🦾
+        <br />
+      </p>
+      <button>Apply Now 👩‍💻</button>
+      <p class="footer">
+        This page was built by
+        <a
+          href="https://www.instagram.com/elly_allexa/"
+          target="_blank"
+          title="Click to get my instagram account!"
+          >Oleksandra Piankova
+        </a>
+      </p>
+    </div>
+    <script>
+      function updateHeading(newHeading) {
+        let h1 = document.querySelector("h1");
+        h1.innerHTML = newHeading;
+      }
+
+      function applyButton() {
+        let name = prompt(`What is your name?`);
+        let age = prompt(`How old are you?`);
+        let email = prompt(`What is your email?`);
+        name = name.trim();
+        age = age.trim();
+        email = email.trim();
+
+        if (name === "" || age === "" || email === "") {
+          alert(`Something wrong with your data. Please, try again! ☹️`);
+        } else {
+          if (age >= 16 && age < 120) {
+            alert(`Welcome! We'll be in touch with you 🥰`);
+            updateHeading(
+              `Welcome, ${name}! We'll send you a link to your email address to join our class. Please, accept our invitation and start your journey in coding with us ☺️`
+            );
+          } else {
+            let countAge = 16 - age;
+            alert(
+              `You cannot apply to the Game Development Course, because you are under 16 😔`
+            );
+            updateHeading(`Hey, you can join us in ${countAge} years 👩‍💻`);
+          }
+        }
+      }
+
+      let applyNow = document.querySelector("button");
+      applyNow.addEventListener("click", applyButton);
+    </script>
+  </body>
+</html>
