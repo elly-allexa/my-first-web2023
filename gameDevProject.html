@@ -28,7 +28,7 @@
         <span>Let’s create your own 5 games!</span>
         We can guarantee you that by the end of the course, you'll be very
         confident in the basics of coding and game development 🦾
-        <br />
+        <br /> 
       </p>
       <button>Apply Now 👩‍💻</button>
       <p class="footer">
@@ -48,12 +48,9 @@
       }
 
       function applyButton() {
-        let name = prompt(`What is your name?`);
-        let age = prompt(`How old are you?`);
-        let email = prompt(`What is your email?`);
-        name = name.trim();
-        age = age.trim();
-        email = email.trim();
+        let name = prompt(`What is your name?`).trim();
+        let age = prompt(`How old are you?`).trim();
+        let email = prompt(`What is your email?`).trim();
 
         if (name === "" || age === "" || email === "") {
           alert(`Something wrong with your data. Please, try again! ☹️`);
