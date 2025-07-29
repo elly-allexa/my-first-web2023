@@ -47,12 +47,20 @@
         h1.innerHTML = newHeading;
       }
 
+      function wrongData() {
+        if (name === "" || age === "" || email === "") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
       function applyButton() {
         let name = prompt(`What is your name?`).trim();
         let age = prompt(`How old are you?`).trim();
         let email = prompt(`What is your email?`).trim();
 
-        if (name === "" || age === "" || email === "") {
+        if (wrongData()) {
           alert(`Something wrong with your data. Please, try again! ☹️`);
         } else {
           if (age >= 16 && age < 120) {
