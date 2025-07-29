@@ -52,20 +52,31 @@
       }
 
       function canApply(age) {
-        if (age >= 16 && age < 120) {
-          return true;
-         }
+        return age >= 16 && age < 120;
+      }
+
+      function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
       }
 
       function applyButton() {
         let name = prompt(`What is your name?`).trim();
-        let age = prompt(`How old are you?`).trim();
+        let ageInput = prompt(`How old are you?`).trim();
         let email = prompt(`What is your email?`).trim();
 
-        if (wrongData(name, age, email)) {
-          alert(`Something wrong with your data. Please, try again! ☹️`);
-        } else {
-          if (canApply(age)) {
+        let age = parseInt(ageInput, 10);
+
+        if (wrongData(name, ageInput, email) || isNaN(age)) {
+          alert(`Something's wrong with your data. Please try again! ☹️`);
+          return;
+        }
+
+        if (!isValidEmail(email)) {
+          alert("Please enter a valid email address 📧");
+          return;
+        }
+
+        if (canApply(age)) {
             alert(`Welcome! We'll be in touch with you 🥰`);
             updateHeading(
               `Welcome, ${name}! We'll send you a link to your email address to join our class. Please, accept our invitation and start your journey in coding with us ☺️`
@@ -78,7 +89,6 @@
             updateHeading(`Hey, you can join us in ${countAge} years 👩‍💻`);
           }
         }
-      }
 
       let applyNow = document.querySelector("button");
       applyNow.addEventListener("click", applyButton);
